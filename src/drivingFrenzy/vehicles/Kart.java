@@ -57,31 +57,46 @@ public class Kart implements Vehicle {
     public String adaptSpeed(Section nextSection) {
         String result = "";
 
+            if (currentGear == 1) {
+                if (nextSection.getTheoreticalMaxSpeed() > maxSpeedFirstGear) {
+                    currentSpeed = maxSpeedFirstGear;
+                    result += "El Kart cambia a la marcha 1, alcanzando la velocidad máxima de " + maxSpeedFirstGear + " km/h.";
+                } else if (nextSection.getTheoreticalMaxSpeed() < minSpeedFirstGear) {
+                    currentSpeed = minSpeedFirstGear;
+                    result += "El Kart reduce la velocidad a la marcha 1 mínima de " + minSpeedFirstGear + " km/h.";
+                } else {
+                    currentSpeed = nextSection.getTheoreticalMaxSpeed();
+                    result += "El Kart se mantiene en la marcha 1, ajustando la velocidad a " + currentSpeed + " km/h.";
+                }
 
-        if (currentGear == 1){
-            if (nextSection.getTheoreticalMaxSpeed() > minSpeedFirstGear) {
+            } else if (currentGear == 2) {
+                if (nextSection.getTheoreticalMaxSpeed() > maxSpeedSecondGear) {
+                    currentSpeed = maxSpeedSecondGear;
+                    result += "El Kart cambia a la marcha 1, alcanzando la velocidad máxima de " + maxSpeedSecondGear + " km/h.";
+                } else if (nextSection.getTheoreticalMaxSpeed() < minSpeedSecondGear) {
+                    currentSpeed = minSpeedSecondGear;
+                    result += "El Kart reduce la velocidad a la marcha 1 mínima de " + minSpeedSecondGear + " km/h.";
+                } else {
+                    currentSpeed = nextSection.getTheoreticalMaxSpeed();
+                    result += "El Kart se mantiene en la marcha 1, ajustando la velocidad a " + currentSpeed + " km/h.";
+                }
 
             }
 
-        } else if (currentGear == 2) {
 
-
+            return result;
         }
 
-
-        return result;
-    }
-
-    public void GearUp() {
-        if (currentGear == 1) {
-            currentGear =+ 1;
+        public void GearUp () {
+            if (currentGear == 1) {
+                currentGear = +1;
+            }
         }
-    }
 
-    public void GearDown() {
-        if (currentGear == 2) {
-            currentGear =- 1;
+        public void GearDown () {
+            if (currentGear == 2) {
+                currentGear = -1;
+            }
         }
-    }
 
-}
+    }

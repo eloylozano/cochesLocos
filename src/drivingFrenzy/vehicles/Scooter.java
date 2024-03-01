@@ -47,13 +47,20 @@ public class Scooter implements Vehicle {
 	@Override
 	public String adaptSpeed(Section nextSection) {
 		String result = "";
+
+
 		if (nextSection.getTheoreticalMaxSpeed() > currentSpeed) {
 			int nextSpeed =  Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
 			result += "El número " + number + " acelera desde " + currentSpeed + " a " + nextSpeed + ". ";
 			currentSpeed = nextSpeed;
+
+
 			if (maxSpeed == currentSpeed) {
 				result += driver + " aprieta a fondo, pero su " + description + " está al límite!";
 			}
+
+
+
 		} else {
 			currentSpeed = nextSection.getTheoreticalMaxSpeed();
 			result += "El número " + number + " reduce la velocidad a " + currentSpeed;
