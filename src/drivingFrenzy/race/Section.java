@@ -1,7 +1,6 @@
 package drivingFrenzy.race;
 
 public interface Section {
-
 	/**
 	 * @return The length of the section in <strong>meters</strong>.
 	 */
@@ -22,4 +21,11 @@ public interface Section {
 	 * @return The max speed for standard vehicles in <strong>km/h</strong>. Climate conditions may affect to it.
 	 */
 	public int getCurrentMaxSpeed();
+
+
+	/**
+	 * @return The real max speed for standard vehicles in <strong>km/h</strong>. Climate conditions may affect to it.
+	 */
+	public double getRealMaxSpeed();
+
 }
