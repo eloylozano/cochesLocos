@@ -60,10 +60,11 @@ public class Kart implements Vehicle {
             if (currentGear == 1) {
                 if (nextSection.getTheoreticalMaxSpeed() > maxSpeedFirstGear) {
                     currentSpeed = maxSpeedFirstGear;
-                    result += "El Kart cambia a la marcha 1, alcanzando la velocidad máxima de " + maxSpeedFirstGear + " km/h.";
+                    result += "El Kart cambia a la marcha 1, alcanzando la velocidad maxima de " + maxSpeedFirstGear + " km/h.";
+                    currentGear++;
                 } else if (nextSection.getTheoreticalMaxSpeed() < minSpeedFirstGear) {
                     currentSpeed = minSpeedFirstGear;
-                    result += "El Kart reduce la velocidad a la marcha 1 mínima de " + minSpeedFirstGear + " km/h.";
+                    result += "El Kart reduce la velocidad a la marcha 1 mï¿½nima de " + minSpeedFirstGear + " km/h.";
                 } else {
                     currentSpeed = nextSection.getTheoreticalMaxSpeed();
                     result += "El Kart se mantiene en la marcha 1, ajustando la velocidad a " + currentSpeed + " km/h.";
@@ -72,10 +73,11 @@ public class Kart implements Vehicle {
             } else if (currentGear == 2) {
                 if (nextSection.getTheoreticalMaxSpeed() > maxSpeedSecondGear) {
                     currentSpeed = maxSpeedSecondGear;
-                    result += "El Kart cambia a la marcha 1, alcanzando la velocidad máxima de " + maxSpeedSecondGear + " km/h.";
+                    result += "El Kart cambia a la marcha 1, alcanzando la velocidad maxima de " + maxSpeedSecondGear + " km/h.";
                 } else if (nextSection.getTheoreticalMaxSpeed() < minSpeedSecondGear) {
                     currentSpeed = minSpeedSecondGear;
-                    result += "El Kart reduce la velocidad a la marcha 1 mínima de " + minSpeedSecondGear + " km/h.";
+                    result += "El Kart reduce la velocidad a la marcha 1 minima de " + minSpeedSecondGear + " km/h.";
+                    currentGear--;
                 } else {
                     currentSpeed = nextSection.getTheoreticalMaxSpeed();
                     result += "El Kart se mantiene en la marcha 1, ajustando la velocidad a " + currentSpeed + " km/h.";

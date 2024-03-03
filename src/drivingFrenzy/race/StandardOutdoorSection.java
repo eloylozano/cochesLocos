@@ -11,10 +11,10 @@ public class StandardOutdoorSection implements Section{
 	private String description;
 	private int theoreticalMaxSpeed;
 	private double realMaxSpeed;
-	private String[] climate = {"Rainy", "Cloudy", "Sunny"};
+	private String climate;
 
 
-	public StandardOutdoorSection(int length, String description, int theoreticalMaxSpeed, String[] climate) {
+	public StandardOutdoorSection(int length, String description, int theoreticalMaxSpeed, String climate) {
 		super();
 		this.length = length;
 		this.description = description;
