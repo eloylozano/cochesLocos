@@ -7,15 +7,15 @@ public class Track {
 		String result = "Este circuito se compone de " + sections.length + " secciones. ";
 		// We could have the length and speeds pre-computed when creating the track.
 		int length = 0;
-		int fastestSectionSpeed = 0;
-		int slowestSectionSpeed = Integer.MAX_VALUE;
+		double fastestSectionSpeed = 0;
+		double slowestSectionSpeed = Integer.MAX_VALUE;
 		for (Section section : sections) {
 			length += section.getLength();
-			if (fastestSectionSpeed < section.getTheoreticalMaxSpeed()) {
-				fastestSectionSpeed = section.getTheoreticalMaxSpeed();
+			if (fastestSectionSpeed < section.getRealMaxSpeed()) {
+				fastestSectionSpeed = section.getRealMaxSpeed();
 			}
-			if (slowestSectionSpeed > section.getTheoreticalMaxSpeed()) {
-				slowestSectionSpeed = section.getTheoreticalMaxSpeed();
+			if (slowestSectionSpeed > section.getRealMaxSpeed()) {
+				slowestSectionSpeed = section.getRealMaxSpeed();
 			}
 		}
 		// Imprimir info sobre el tramo más rápido y el más lento.
