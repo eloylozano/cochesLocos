@@ -45,6 +45,11 @@ public class Scooter implements Vehicle {
 	}
 
 	@Override
+	public String adaptSpeed(Section nextSection, double realMaxSpeed) {
+		return null;
+	}
+
+	@Override
 	public String adaptSpeed(Section nextSection) {
 		String result = "";
 

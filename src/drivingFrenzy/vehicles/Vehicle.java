@@ -1,6 +1,7 @@
 package drivingFrenzy.vehicles;
 
 import drivingFrenzy.race.Section;
+import drivingFrenzy.race.StandardOutdoorSection;
 
 /**
  * @author ismael Vehicles can be of various types. All of them share in common
@@ -42,6 +43,7 @@ public interface Vehicle {
 	 * @param nextSection
 	 * @return 
 	 */
-	public String adaptSpeed(Section nextSection);
+	public String adaptSpeed(Section nextSection, double realMaxSpeed );
 
+	String adaptSpeed(Section nextSection);
 }

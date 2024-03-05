@@ -36,7 +36,6 @@ public class StandardOutdoorSection implements Section {
         return 0;
     }
 
-
     @Override
     public double getRealMaxSpeed() {
         switch (climate){
