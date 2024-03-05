@@ -3,7 +3,6 @@ package drivingFrenzy.vehicles;
 import drivingFrenzy.race.Section;
 
 public class Scooter implements Vehicle {
-
 	private int number;
 	private String driver;
 	private int currentSpeed;
@@ -48,18 +47,14 @@ public class Scooter implements Vehicle {
 	public String adaptSpeed(Section nextSection) {
 		String result = "";
 
-
 		if (nextSection.getRealMaxSpeed() > currentSpeed) {
 			int nextSpeed =  Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
 			result += "El número " + number + " acelera desde " + currentSpeed + " a " + nextSpeed + ". ";
 			currentSpeed = nextSpeed;
 
-
 			if (maxSpeed == currentSpeed) {
 				result += driver + " aprieta a fondo, pero su " + description + " está al límite!";
 			}
-
-
 
 		} else {
 			currentSpeed = nextSection.getTheoreticalMaxSpeed();
@@ -67,5 +62,4 @@ public class Scooter implements Vehicle {
 		}
 		return result;
 	}
-
 }
