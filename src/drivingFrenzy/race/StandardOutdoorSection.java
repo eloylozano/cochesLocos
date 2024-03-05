@@ -11,16 +11,16 @@ public class StandardOutdoorSection implements Section {
 
     private int length;
     private String description;
-    private static int theoreticalMaxSpeed;
-    private static double realMaxSpeed;
-    private static String climate;
+    private int theoreticalMaxSpeed;
+    private String climate;
+    private double realMaxSpeed;
 
-    public StandardOutdoorSection(int length, String description, int theoreticalMaxSpeed, String climate) {
-        super();
+    public StandardOutdoorSection(int length, String description, int theoreticalMaxSpeed, String climate, double realMaxSpeed) {
         this.length = length;
         this.description = description;
         this.theoreticalMaxSpeed = theoreticalMaxSpeed;
         this.climate = climate;
+        this.realMaxSpeed = realMaxSpeed;
     }
 
     @Override
@@ -41,26 +41,18 @@ public class StandardOutdoorSection implements Section {
 
     @Override
     public double getRealMaxSpeed() {
-        return realMaxSpeed;
-    }
-
-    public static String getRandomClimate() {
-        Random random = new Random();
-        int climateRandom = random.nextInt(3);
-        if (climateRandom == 0) {
-            // 0 == Rainy, worst conditions to race
-            double speedRainyCoefficient = random.nextDouble(0.2) + 0.7;
-            realMaxSpeed = theoreticalMaxSpeed * speedRainyCoefficient;
-        } else if (climateRandom == 1) {
-            // 1 == Normal or Cloudy
-            double speedNormalCoefficient = random.nextDouble(0.2) + 0.9;
-            realMaxSpeed = theoreticalMaxSpeed * speedNormalCoefficient;
-        } else if (climateRandom == 2) {
-            // 2 == Sunny, better conditions to race
-            double speedSunnyCoefficient = random.nextDouble(0.2) + 1.1;
-            realMaxSpeed = theoreticalMaxSpeed * speedSunnyCoefficient;
+        switch (climate){
+            case "Sunny":
+                realMaxSpeed = theoreticalMaxSpeed * 1.2;
+                break;
+            case "Normal":
+                realMaxSpeed = theoreticalMaxSpeed;
+                break;
+            case "Rainy":
+                realMaxSpeed = theoreticalMaxSpeed * 0.7;
+                break;
         }
-        return climate;
+        return realMaxSpeed;
     }
 
     @Override

@@ -49,7 +49,7 @@ public class Scooter implements Vehicle {
 		String result = "";
 
 
-		if (nextSection.getTheoreticalMaxSpeed() > currentSpeed) {
+		if (nextSection.getRealMaxSpeed() > currentSpeed) {
 			int nextSpeed =  Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
 			result += "El número " + number + " acelera desde " + currentSpeed + " a " + nextSpeed + ". ";
 			currentSpeed = nextSpeed;
