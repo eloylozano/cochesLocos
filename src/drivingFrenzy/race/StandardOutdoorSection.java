@@ -12,15 +12,13 @@ public class StandardOutdoorSection implements Section {
     private int length;
     private String description;
     private int theoreticalMaxSpeed;
-    private String climate;
+    private int climate;
     private double realMaxSpeed;
 
-    public StandardOutdoorSection(int length, String description, int theoreticalMaxSpeed, String climate, double realMaxSpeed) {
+    public StandardOutdoorSection(int length, String description, int theoreticalMaxSpeed) {
         this.length = length;
         this.description = description;
         this.theoreticalMaxSpeed = theoreticalMaxSpeed;
-        this.climate = climate;
-        this.realMaxSpeed = realMaxSpeed;
     }
 
     @Override
@@ -41,15 +39,21 @@ public class StandardOutdoorSection implements Section {
 
     @Override
     public double getRealMaxSpeed() {
-        switch (climate){
-            case "Sunny":
-                realMaxSpeed = theoreticalMaxSpeed * 1.2;
+        Random random = new Random();
+        climate = random.nextInt(3);
+        double speedCoefficent = 0;
+        switch (climate) {
+            case 0:
+                speedCoefficent = random.nextDouble(0.7) + 0.2;
+                realMaxSpeed = theoreticalMaxSpeed * speedCoefficent;
                 break;
-            case "Normal":
-                realMaxSpeed = theoreticalMaxSpeed;
+            case 1:
+                speedCoefficent = random.nextDouble(0.9) + 0.2;
+                realMaxSpeed = theoreticalMaxSpeed * speedCoefficent;
                 break;
-            case "Rainy":
-                realMaxSpeed = theoreticalMaxSpeed * 0.7;
+            case 2:
+                speedCoefficent = random.nextDouble(1.1) + 0.2;
+                realMaxSpeed = theoreticalMaxSpeed * speedCoefficent;
                 break;
         }
         return realMaxSpeed;

@@ -42,6 +42,6 @@ public interface Vehicle {
 	 * @param nextSection
 	 * @return 
 	 */
-	public String adaptSpeed(Section nextSection);
+	public String adaptSpeed(Section nextSection, double realMaxSpeed);
 
 }

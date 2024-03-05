@@ -54,15 +54,15 @@ public class Kart implements Vehicle {
     }
 
     @Override
-    public String adaptSpeed(Section nextSection) {
+    public String adaptSpeed(Section nextSection,  double realMaxSpeed) {
         String result = "";
 
             if (currentGear == 1) {
-                if (nextSection.getRealMaxSpeed() > maxSpeedFirstGear) {
+                if (nextSection.getTheoreticalMaxSpeed() > maxSpeedFirstGear) {
                     currentSpeed = maxSpeedFirstGear;
                     result += "El Kart cambia a la marcha 1, alcanzando la velocidad maxima de " + maxSpeedFirstGear + " km/h.";
                     currentGear++;
-                } else if (nextSection.getRealMaxSpeed() < minSpeedFirstGear) {
+                } else if (nextSection.getTheoreticalMaxSpeed() < minSpeedFirstGear) {
                     currentSpeed = minSpeedFirstGear;
                     result += "El Kart reduce la velocidad a la marcha 1 m�nima de " + minSpeedFirstGear + " km/h.";
                 } else {
@@ -71,10 +71,10 @@ public class Kart implements Vehicle {
                 }
 
             } else if (currentGear == 2) {
-                if (nextSection.getRealMaxSpeed() > maxSpeedSecondGear) {
+                if (nextSection.getTheoreticalMaxSpeed() > maxSpeedSecondGear) {
                     currentSpeed = maxSpeedSecondGear;
                     result += "El Kart cambia a la marcha 1, alcanzando la velocidad maxima de " + maxSpeedSecondGear + " km/h.";
-                } else if (nextSection.getRealMaxSpeed() < minSpeedSecondGear) {
+                } else if (nextSection.getTheoreticalMaxSpeed() < minSpeedSecondGear) {
                     currentSpeed = minSpeedSecondGear;
                     result += "El Kart reduce la velocidad a la marcha 1 minima de " + minSpeedSecondGear + " km/h.";
                     currentGear--;

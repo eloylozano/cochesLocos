@@ -44,10 +44,10 @@ public class Scooter implements Vehicle {
 	}
 
 	@Override
-	public String adaptSpeed(Section nextSection) {
+	public String adaptSpeed(Section nextSection, double realMaxSpeed) {
 		String result = "";
 
-		if (nextSection.getRealMaxSpeed() > currentSpeed) {
+		if (nextSection.getTheoreticalMaxSpeed() > currentSpeed) {
 			int nextSpeed =  Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
 			result += "El número " + number + " acelera desde " + currentSpeed + " a " + nextSpeed + ". ";
 			currentSpeed = nextSpeed;
