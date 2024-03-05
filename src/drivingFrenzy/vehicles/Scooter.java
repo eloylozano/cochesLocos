@@ -9,7 +9,7 @@ public class Scooter implements Vehicle {
 	private int currentSpeed;
 	private int maxSpeed;
 	private String description;
-	
+
 	public Scooter(int number, String driver, int currentSpeed, int maxSpeed, String description) {
 		super();
 		this.number = number;
@@ -53,24 +53,18 @@ public class Scooter implements Vehicle {
 	public String adaptSpeed(Section nextSection) {
 		String result = "";
 
-
-		if (nextSection.getTheoreticalMaxSpeed() > currentSpeed) {
+		if (nextSection.getRealMaxSpeed() > maxSpeed) {
 			int nextSpeed =  Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
 			result += "El número " + number + " acelera desde " + currentSpeed + " a " + nextSpeed + ". ";
 			currentSpeed = nextSpeed;
 
-
 			if (maxSpeed == currentSpeed) {
 				result += driver + " aprieta a fondo, pero su " + description + " está al límite!";
 			}
-
-
-
 		} else {
-			currentSpeed = nextSection.getTheoreticalMaxSpeed();
-			result += "El número " + number + " reduce la velocidad a " + currentSpeed;
+			currentSpeed = Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
+			result += "El número " + number + " se mantiene a " + currentSpeed + " km/h.";
 		}
 		return result;
 	}
-
 }
