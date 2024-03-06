@@ -37,7 +37,7 @@ public class StandardIndoorSection implements Section{
 
 	@Override
 	public double getRealMaxSpeed() {
-		return 0;
+		return theoreticalMaxSpeed;
 	}
 
 	@Override
