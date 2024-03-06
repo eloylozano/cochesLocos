@@ -5,7 +5,8 @@ public interface Section {
 	 * @return The length of the section in <strong>meters</strong>.
 	 */
 	public int getLength();
-	
+
+
 	/**
 	 * @return a description of the section.
 	 */
