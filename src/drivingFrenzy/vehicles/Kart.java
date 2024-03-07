@@ -6,7 +6,6 @@ public class Kart extends DrivenVehicleAbstract {
 
     private int number;
     private String driver;
-    private int currentSpeed;
     private int maxSpeed;
     private String description;
     private int currentGear;

@@ -6,7 +6,6 @@ public class Scooter extends DrivenVehicleAbstract {
 
 	private int number;
 	private String driver;
-	private int currentSpeed;
 	private int maxSpeed;
 	private String description;
 
@@ -65,6 +64,6 @@ public class Scooter extends DrivenVehicleAbstract {
 			currentSpeed = Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
 			result += "El número " + number + " se mantiene a " + currentSpeed + " km/h.";
 		}
-		return super.getAdaptSpeed();
+		return result + super.adaptSpeed();
 	}
 }

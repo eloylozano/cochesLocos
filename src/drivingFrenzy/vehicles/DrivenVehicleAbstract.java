@@ -3,7 +3,7 @@ package drivingFrenzy.vehicles;
 import java.util.Random;
 
 public abstract class DrivenVehicleAbstract implements Vehicle {
-    private int currentSpeed;
+    protected int currentSpeed;
 
 
     public String adaptSpeed() {
