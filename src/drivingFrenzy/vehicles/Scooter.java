@@ -2,7 +2,7 @@ package drivingFrenzy.vehicles;
 
 import drivingFrenzy.race.Section;
 
-public class Scooter implements Vehicle {
+public class Scooter extends DrivenVehicleAbstract {
 
 	private int number;
 	private String driver;
@@ -65,6 +65,6 @@ public class Scooter implements Vehicle {
 			currentSpeed = Math.min(maxSpeed, nextSection.getTheoreticalMaxSpeed());
 			result += "El número " + number + " se mantiene a " + currentSpeed + " km/h.";
 		}
-		return result;
+		return super.getAdaptSpeed();
 	}
 }

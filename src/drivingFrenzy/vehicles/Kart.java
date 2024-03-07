@@ -2,7 +2,7 @@ package drivingFrenzy.vehicles;
 
 import drivingFrenzy.race.Section;
 
-public class Kart implements Vehicle {
+public class Kart extends DrivenVehicleAbstract {
 
     private int number;
     private String driver;
@@ -77,7 +77,7 @@ public class Kart implements Vehicle {
         } else if (currentGear == 2) {
             if (nextSection.getRealMaxSpeed() > maxSpeedSecondGear) {
                 currentSpeed = maxSpeedSecondGear;
-                result += "El Kart cambia a la marcha 1, alcanzando la velocidad maxima de " + maxSpeedSecondGear + " km/h.";
+                result += "El Kart cambia a la marcha 2, alcanzando la velocidad maxima de " + maxSpeedSecondGear + " km/h.";
             } else if (nextSection.getRealMaxSpeed() < minSpeedSecondGear) {
                 currentSpeed = minSpeedSecondGear;
                 result += "El Kart reduce la velocidad a la marcha 1 minima de " + minSpeedSecondGear + " km/h.";
@@ -88,6 +88,6 @@ public class Kart implements Vehicle {
             }
         }
 
-        return result;
+        return result + super.adaptSpeed();
     }
 }
