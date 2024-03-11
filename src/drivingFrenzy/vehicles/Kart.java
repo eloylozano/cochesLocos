@@ -1,6 +1,9 @@
 package drivingFrenzy.vehicles;
 
 import drivingFrenzy.race.Section;
+import drivingFrenzy.race.StandardOutdoorSection;
+
+import java.util.Random;
 
 public class Kart extends DrivenVehicleAbstract {
 
@@ -13,8 +16,9 @@ public class Kart extends DrivenVehicleAbstract {
     private int maxSpeedFirstGear;
     private int minSpeedSecondGear;
     private int maxSpeedSecondGear;
+    private String drivingStyle;
 
-    public Kart(int number, String driver, int currentSpeed, int maxSpeed, String description, int currentGear, int minSpeedFirstGear, int maxSpeedFirstGear, int minSpeedSecondGear, int maxSpeedSecondGear) {
+    public Kart(int number, String driver, int currentSpeed, int maxSpeed, String description, int currentGear, int minSpeedFirstGear, int maxSpeedFirstGear, int minSpeedSecondGear, int maxSpeedSecondGear, String drivingStyle) {
         this.number = number;
         this.driver = driver;
         this.currentSpeed = currentSpeed;
@@ -25,6 +29,7 @@ public class Kart extends DrivenVehicleAbstract {
         this.maxSpeedFirstGear = maxSpeedFirstGear;
         this.minSpeedSecondGear = minSpeedSecondGear;
         this.maxSpeedSecondGear = maxSpeedSecondGear;
+        this.drivingStyle = drivingStyle;
     }
 
     @Override
@@ -59,8 +64,19 @@ public class Kart extends DrivenVehicleAbstract {
 
     @Override
     public String adaptSpeed(Section nextSection) {
-        String result = "";
+        Random random = new Random();
+        int randomBound = 0;
+        switch (drivingStyle) {
+            case "Normal":
+                break;
+            case "Agressive":
+            case "Cautious":
+                randomBound = nextSection.getVariationLevel();
+                maxSpeed *= random.nextInt() * randomBound + 1;
+                break;
+        }
 
+        String result = "";
         if (currentGear == 1) {
             if (nextSection.getRealMaxSpeed() > maxSpeedFirstGear) {
                 currentSpeed = maxSpeedFirstGear;

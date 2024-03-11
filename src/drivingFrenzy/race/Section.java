@@ -29,4 +29,6 @@ public interface Section {
 	 */
 	public double getRealMaxSpeed();
 
+	public int getVariationLevel();
+
 }

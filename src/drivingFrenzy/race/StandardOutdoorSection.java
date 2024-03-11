@@ -55,6 +55,19 @@ public class StandardOutdoorSection implements Section {
     }
 
     @Override
+    public int getVariationLevel() {
+        int variationLvl = 0;
+        if (climate == 0) { // Rainy
+            variationLvl = 1;
+        } else if (climate == 1) { // Normal
+            variationLvl = 0;
+        } else if (climate == 2) { // Sunny
+            variationLvl = 2;
+        }
+        return variationLvl;
+    }
+
+    @Override
     public double getRealMaxSpeed() {
         // Use the appropriate coefficient based on the climate
         double coefficient = coefficients[climate];
