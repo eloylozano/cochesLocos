@@ -41,9 +41,9 @@ public class StandardOutdoorSection implements Section {
 
     private double[] generateClimate() {
         Random random = new Random();
-        double rainyConditionsCoefficient = random.nextDouble() * 0.7 + 0.2; // Coefficient range for rainy conditions
-        double normalConditionsCoefficient = random.nextDouble() * 0.9 + 0.3; // Coefficient range for normal conditions
-        double sunnyConditionsCoefficient = random.nextDouble() * 1.2 + 0.2; // Coefficient range for sunny conditions
+        double rainyConditionsCoefficient = random.nextDouble() * 0.2 + 0.5; // Coefficient range for rainy conditions
+        double normalConditionsCoefficient = random.nextDouble() * 0.2 + 0.7; // Coefficient range for normal conditions
+        double sunnyConditionsCoefficient = random.nextDouble() * 0.3 + 0.9; // Coefficient range for sunny conditions
 
         // Store the coefficients in an array
         double[] conditions = new double[3];
@@ -53,6 +53,7 @@ public class StandardOutdoorSection implements Section {
 
         return conditions;
     }
+
 
     @Override
     public int getVariationLevel() {
