@@ -65,18 +65,20 @@ public class Kart extends DrivenVehicleAbstract {
     @Override
     public String adaptSpeed(Section nextSection) {
         Random random = new Random();
-        int randomBound = 0;
+        String result = "";
+
         switch (drivingStyle) {
             case "Normal":
                 break;
             case "Agressive":
+                maxSpeed *= random.nextInt(1) + 0.2;
+                break;
             case "Cautious":
-                randomBound = nextSection.getVariationLevel();
-                maxSpeed *= random.nextInt() * randomBound + 1;
+                maxSpeed *= random.nextInt() * 0.8 + 0.2;
                 break;
         }
+        ;
 
-        String result = "";
         if (currentGear == 1) {
             if (nextSection.getRealMaxSpeed() > maxSpeedFirstGear) {
                 currentSpeed = maxSpeedFirstGear;
