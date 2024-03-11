@@ -41,6 +41,11 @@ public class StandardIndoorSection implements Section{
 	}
 
 	@Override
+	public int getVariationLevel() {
+		return 0;
+	}
+
+	@Override
 	public String getDescription() {
 		return description;
 	}
